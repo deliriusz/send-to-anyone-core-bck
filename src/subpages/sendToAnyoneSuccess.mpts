@@ -6,7 +6,23 @@
     <h2>Transaction Submitted🥳</h2>
     <p class="subtitle"><a href=explorerLink>View on Explorer<img src=link alt="" class="linkIcon"/></a></p>
     <br/>
-    <p class="subtitle claim">In order for others to claim, please send them the following link: <a href=claimUrl>Claim page</a></p>
+    <div id="text-wrapper">
+            In order for others to claim, please send them the following link:
+            <div class="textWrap" onclick="copyLink();">
+                <span class="urlWrap" id="textContent">{{claimUrl}}</span>
+            </div>
+            <div id="tooltip" class="text-sm">Copied!</div>
+        </div>
+        <script>
+            async function copyLink() {
+                _link = {{claimUrl}}
+                await navigator.clipboard.writeText(_link);
+                // document.getElementById("tooltip").style.visibility = "visible";
+                // setTimeout(function () {
+                //                tooltip.style.visibility = "hidden";
+                //            }, 1000);
+            }
+        </script>
 </main>
 <footer>
     <button type="button" class="close">
